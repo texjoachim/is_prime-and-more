@@ -21,10 +21,10 @@ def is_prime(num):          # Let's take the easy ones out first.
         return True
     else:
         for div in range(2, int(num / 2) + 1):  # Number crunching. :)
-            #print("Number: ", num, "divided by: ", div, "modulo: ",\
+            # print("Number: ", num, "divided by: ", div, "modulo: ",\
             # (num % div)) # if you want to see the numbers
-            #print(".", end="")              # One dot per division.
-            print(div)                      # Print divisor
+            print(".", end="")              # One dot per division.
+            # print(div)                      # Print divisor
             if num % div == 0:              # No rest, no prime.
                 return False
         return True
