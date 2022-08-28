@@ -9,7 +9,7 @@ Licence: GPL v3 or later
 
 # Imports
 import sys
-
+from progress.bar import ChargingBar as Bar
 
 # is_prime
 def is_prime(num):          # Let's take the easy ones out first.
@@ -20,15 +20,16 @@ def is_prime(num):          # Let's take the easy ones out first.
     elif num == 3:
         return True
     else:
+        bar = Bar("Progress Bar", max=int(num / 2) + 1)
         for div in range(2, int(num / 2) + 1):  # Number crunching. :)
             # print("Number: ", num, "divided by: ", div, "modulo: ",\
             # (num % div)) # if you want to see the numbers
-            print(".", end="")              # One dot per division.
+            # print(".", end="")              # One dot per division.
             # print(div)                      # Print divisor
+            bar.next()
             if num % div == 0:              # No rest, no prime.
                 return False
         return True
-
 
 # Main
 def main():
