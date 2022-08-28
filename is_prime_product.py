@@ -10,10 +10,12 @@ Licence: GPL v3 or later
 
 # Imports
 import sys
+from progress.bar import ChargingBar as Bar
 
 
 # is_prime
 def is_prime(num):          # Let's take the easy ones out first.
+    # bar_calc = Bar("Calculating", max=int(num / 2) + 1)
     if num == 1:
         return True
     elif num == 2:
@@ -22,7 +24,8 @@ def is_prime(num):          # Let's take the easy ones out first.
         return True
     else:
         for div in range(2, int(num / 2) + 1):  # Number crunching. :)
-            print(".", end="")  # One dot per division.
+            # print(".", end="")  # One dot per division.
+            # bar_calc.next()
             if num % div == 0:   # No rest, no prime.
                 return False
         return True
@@ -30,7 +33,9 @@ def is_prime(num):          # Let's take the easy ones out first.
 
 # is_product
 def is_product(num):
+    bar_total = Bar("Overall Progress", max=int(num / 2) + 1)
     for count in range(2, int(num / 2) + 1):
+        bar_total.next()
         if num % count == 0:
             multi1 = num / count
             if is_prime(multi1):

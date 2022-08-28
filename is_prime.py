@@ -20,7 +20,7 @@ def is_prime(num):          # Let's take the easy ones out first.
     elif num == 3:
         return True
     else:
-        bar = Bar("Progress Bar", max=int(num / 2) + 1)
+        bar = Bar("Calculating", max=int(num / 2) + 1)
         for div in range(2, int(num / 2) + 1):  # Number crunching. :)
             # print("Number: ", num, "divided by: ", div, "modulo: ",\
             # (num % div)) # if you want to see the numbers
